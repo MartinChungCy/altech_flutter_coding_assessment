@@ -50,7 +50,14 @@ manage their expenses efficiently.
 - Upload the codebase to a public repository (e.g., GitHub)
 - Include a README.md file with instructions on how to run the application.
 
+
 ## How To Run
 - Clone the Project 
 - Run flutter clean and after flutter run
 - Tested On IOS Simulator 18.1 only
+
+![List](1.png)
+![List](2.png)
+![List](3.png)
+![List](4.png)
+![List](5.png)
