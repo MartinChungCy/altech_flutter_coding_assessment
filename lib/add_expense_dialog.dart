@@ -1,3 +1,4 @@
+import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
@@ -72,8 +73,15 @@ class AddExpenseDialogState extends State<AddExpenseDialog> {
   }
 
   Widget _buildDropdownButtonFormField() {
-    return DropdownButtonFormField<String>(
-      hint: const Text('Select Category'),
+    return DropdownButtonFormField2<String>(
+      decoration: const InputDecoration(
+        labelText: 'Select Category',
+      ),
+      dropdownStyleData: DropdownStyleData(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(15),
+        ),
+      ),
       value: _selectedCategory,
       items: categories.map((category) {
         return DropdownMenuItem(
@@ -146,9 +154,9 @@ class AddExpenseDialogState extends State<AddExpenseDialog> {
                 return null;
               },
             ),
-            const SizedBox(height: 20),
+            const SizedBox(height: 10),
             _buildDropdownButtonFormField(),
-            const SizedBox(height: 20),
+            const SizedBox(height: 10),
             _buildDatePickerRow(),
           ],
         ),

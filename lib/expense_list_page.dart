@@ -48,7 +48,6 @@ class ExpenseListPageState extends State<ExpenseListPage> {
       ),
       body: Column(
         children: [
-
           Padding(
             padding: const EdgeInsets.all(paddingValue),
             child: Row(
