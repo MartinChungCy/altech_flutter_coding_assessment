@@ -1,4 +1,4 @@
-# altech_flutter_coding_assessment
+# Altech_flutter_coding_assessment
 
 Expense Tracker Application
 
@@ -49,3 +49,8 @@ manage their expenses efficiently.
 ## Submission Instructions
 - Upload the codebase to a public repository (e.g., GitHub)
 - Include a README.md file with instructions on how to run the application.
+
+## How To Run
+- Clone the Project 
+- Run flutter clean and after flutter run
+- Tested On IOS Simulator 18.1 only
