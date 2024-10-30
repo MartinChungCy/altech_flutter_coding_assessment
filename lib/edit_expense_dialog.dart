@@ -122,6 +122,7 @@ class EditExpenseDialogState extends State<EditExpenseDialog> {
     return TextFormField(
       controller: _titleController,
       decoration: const InputDecoration(labelText: 'Title'),
+      style: const TextStyle(fontWeight: FontWeight.bold),
       validator: _validateTitle,
     );
   }
@@ -129,7 +130,10 @@ class EditExpenseDialogState extends State<EditExpenseDialog> {
   TextFormField _buildAmountField() {
     return TextFormField(
       controller: _amountController,
-      decoration: const InputDecoration(labelText: 'Amount'),
+      decoration: const InputDecoration(
+        labelText: 'Amount',
+      ),
+      style: const TextStyle(fontWeight: FontWeight.bold),
       keyboardType: TextInputType.number,
       validator: _validateAmount,
     );
@@ -167,6 +171,7 @@ class EditExpenseDialogState extends State<EditExpenseDialog> {
         Text(
           // _selectedDate!.toLocal().toString().split(' ')[0],
           DateFormat('dd/MM/yyyy').format(_selectedDate),
+          style: const TextStyle(fontWeight: FontWeight.bold),
         ),
         IconButton(
           icon: const Icon(Icons.calendar_today),

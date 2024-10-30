@@ -103,14 +103,12 @@ class AddExpenseDialogState extends State<AddExpenseDialog> {
       children: [
         Expanded(
           child: Text(
-            _selectedDate == null
-                ? 'No Date Chosen!'
-                : 'Picked Date: ${DateFormat("dd/MM/yyyy").format(_selectedDate!)}',
+            DateFormat("dd/MM/yyyy").format(_selectedDate!),
             style: TextStyle(
-              color: _selectedDate == null && _noDateChosen
-                  ? Colors.red
-                  : Colors.black,
-            ),
+                color: _selectedDate == null && _noDateChosen
+                    ? Colors.red
+                    : Colors.black,
+                fontWeight: FontWeight.bold),
           ),
         ),
         TextButton(
@@ -136,11 +134,13 @@ class AddExpenseDialogState extends State<AddExpenseDialog> {
           children: [
             TextFormField(
               decoration: _buildInputDecoration('Title'),
+              style: const TextStyle(fontWeight: FontWeight.bold),
               controller: _titleController,
               validator: _fieldValidator,
             ),
             TextFormField(
               decoration: _buildInputDecoration('Amount'),
+              style: const TextStyle(fontWeight: FontWeight.bold),
               controller: _amountController,
               keyboardType:
                   const TextInputType.numberWithOptions(decimal: true),
