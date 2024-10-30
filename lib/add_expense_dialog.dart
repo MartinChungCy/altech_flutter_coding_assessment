@@ -17,7 +17,7 @@ class AddExpenseDialogState extends State<AddExpenseDialog> {
   final _formKey = GlobalKey<FormState>();
   final _titleController = TextEditingController();
   final _amountController = TextEditingController();
-  DateTime? _selectedDate;
+  DateTime? _selectedDate = DateTime.now();
   String? _selectedCategory;
   bool _noDateChosen = false;
 
@@ -105,7 +105,7 @@ class AddExpenseDialogState extends State<AddExpenseDialog> {
           child: Text(
             _selectedDate == null
                 ? 'No Date Chosen!'
-                : 'Picked Date: ${DateFormat.yMd().format(_selectedDate!)}',
+                : 'Picked Date: ${DateFormat("dd/MM/yyyy").format(_selectedDate!)}',
             style: TextStyle(
               color: _selectedDate == null && _noDateChosen
                   ? Colors.red
@@ -128,6 +128,7 @@ class AddExpenseDialogState extends State<AddExpenseDialog> {
   Widget build(BuildContext context) {
     return AlertDialog(
       title: const Text('Add New Expense'),
+      scrollable: true,
       content: Form(
         key: _formKey,
         child: Column(
