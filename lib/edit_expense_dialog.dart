@@ -45,7 +45,7 @@ class EditExpenseDialogState extends State<EditExpenseDialog> {
   }
 
   Future<void> _pickDate(BuildContext context) async {
-    DateTime initialDate = _selectedDate ?? DateTime.now();
+    DateTime initialDate = _selectedDate;
     final DateTime? picked = await showDatePicker(
         context: context,
         initialDate: initialDate,
@@ -66,7 +66,7 @@ class EditExpenseDialogState extends State<EditExpenseDialog> {
           title: title,
           amount: amount,
           category: _selectedCategory,
-          date: _selectedDate ?? DateTime.now());
+          date: _selectedDate);
       context
           .read<ExpenseBloc>()
           .add(UpdateExpenseEvent(updatedExpense.id, updatedExpense));

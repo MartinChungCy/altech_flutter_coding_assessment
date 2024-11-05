@@ -1,4 +1,5 @@
 import 'package:equatable/equatable.dart';
+import 'package:nanoid2/nanoid2.dart';
 
 final List<String> categories = [
   'Food',
@@ -15,13 +16,13 @@ class ExpenseItem extends Equatable {
   final DateTime date;
   final String id;
 
-  const ExpenseItem({
+  ExpenseItem({
     required this.title,
     required this.amount,
     required this.category,
     required this.date,
-    required this.id,
-  });
+    String? id,
+  }) : id = id ?? nanoid(length: 10);
 
   Map<String, dynamic> toMap() {
     return {
