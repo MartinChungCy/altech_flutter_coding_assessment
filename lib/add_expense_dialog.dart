@@ -2,6 +2,7 @@ import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
+import 'package:nanoid2/nanoid2.dart';
 import 'bloc/expense_bloc.dart';
 import 'bloc/expense_event.dart';
 import 'bloc/expense_item.dart';
@@ -51,6 +52,7 @@ class AddExpenseDialogState extends State<AddExpenseDialog> {
         amount: enteredAmount,
         date: _selectedDate!,
         category: _selectedCategory!,
+        id: nanoid(length: 10),
       );
       context.read<ExpenseBloc>().add(AddExpenseEvent(newExpense));
       Navigator.of(context).pop();

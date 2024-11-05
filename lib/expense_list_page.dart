@@ -73,6 +73,7 @@ class ExpenseListPageState extends State<ExpenseListPage> {
                   final expenses = state.expenses;
                   final sortedExpenses = List.from(expenses)
                     ..sort((a, b) => b.date.compareTo(a.date));
+
                   final filteredExpenses = _filterExpenses(sortedExpenses);
 
                   return Column(
@@ -225,7 +226,7 @@ class ExpenseListPageState extends State<ExpenseListPage> {
                       icon: const Icon(Icons.delete),
                       color: Colors.red,
                       onPressed: () => context.read<ExpenseBloc>().add(
-                            DeleteExpenseEvent(index),
+                            DeleteExpenseEvent(filteredExpenses[index].id),
                           ),
                     ),
                   ],

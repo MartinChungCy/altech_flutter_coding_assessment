@@ -69,7 +69,7 @@ class EditExpenseDialogState extends State<EditExpenseDialog> {
           date: _selectedDate ?? DateTime.now());
       context
           .read<ExpenseBloc>()
-          .add(UpdateExpenseEvent(widget.index, updatedExpense));
+          .add(UpdateExpenseEvent(updatedExpense.id, updatedExpense));
       Navigator.of(context).pop();
     }
   }

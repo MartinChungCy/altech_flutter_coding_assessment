@@ -20,17 +20,17 @@ class AddExpenseEvent extends ExpenseEvent {
 }
 
 class UpdateExpenseEvent extends ExpenseEvent {
-  final int index;
+  final String id;
   final ExpenseItem updatedExpense;
 
-  const UpdateExpenseEvent(this.index, this.updatedExpense);
+  const UpdateExpenseEvent(this.id, this.updatedExpense);
 }
 
 class DeleteExpenseEvent extends ExpenseEvent {
-  final int index;
+  final String id;
 
-  const DeleteExpenseEvent(this.index);
+  const DeleteExpenseEvent(this.id);
 
   @override
-  List<Object> get props => [index];
+  List<Object> get props => [id];
 }

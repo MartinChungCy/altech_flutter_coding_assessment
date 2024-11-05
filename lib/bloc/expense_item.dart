@@ -13,12 +13,14 @@ class ExpenseItem extends Equatable {
   final double amount;
   final String category;
   final DateTime date;
+  final String id;
 
   const ExpenseItem({
     required this.title,
     required this.amount,
     required this.category,
     required this.date,
+    required this.id,
   });
 
   Map<String, dynamic> toMap() {
@@ -27,11 +29,12 @@ class ExpenseItem extends Equatable {
       'title': title,
       'amount': amount,
       'category': category,
+      'id': id,
     };
   }
 
   @override
-  List<Object> get props => [title, amount, category, date];
+  List<Object> get props => [title, amount, category, date, id];
 
   Map<String, dynamic> toJson() {
     return {
@@ -39,16 +42,22 @@ class ExpenseItem extends Equatable {
       'amount': amount,
       'category': category,
       'date': date.toIso8601String(),
+      'id': id,
     };
   }
 
   ExpenseItem copyWith(
-      {String? title, double? amount, String? category, DateTime? date}) {
+      {String? title,
+      double? amount,
+      String? category,
+      DateTime? date,
+      String? id}) {
     return ExpenseItem(
       title: title ?? this.title,
       amount: amount ?? this.amount,
       category: category ?? this.category,
       date: date ?? this.date,
+      id: id ?? this.id,
     );
   }
 
@@ -57,7 +66,10 @@ class ExpenseItem extends Equatable {
       title: json['title'],
       amount: json['amount'],
       category: json['category'],
-      date: DateTime.parse(json['date']),
+      date: DateTime.parse(
+        json['date'],
+      ),
+      id: json['id'],
     );
   }
 }

@@ -45,7 +45,11 @@ class ExpenseBloc extends Bloc<ExpenseEvent, ExpenseState> {
     if (state is ExpenseLoaded) {
       final List<ExpenseItem> updatedExpenses =
           List.from((state as ExpenseLoaded).expenses);
-      updatedExpenses[event.index] = event.updatedExpense;
+
+      final index = List.from((state as ExpenseLoaded).expenses)
+          .indexWhere((expense) => expense.id == event.id);
+
+      updatedExpenses[index] = event.updatedExpense;
       await _saveExpenses(updatedExpenses);
       emit(ExpenseLoaded(updatedExpenses));
     }
@@ -55,7 +59,12 @@ class ExpenseBloc extends Bloc<ExpenseEvent, ExpenseState> {
       DeleteExpenseEvent event, Emitter<ExpenseState> emit) async {
     if (state is ExpenseLoaded) {
       final List<ExpenseItem> updatedExpenses =
-          List.from((state as ExpenseLoaded).expenses)..removeAt(event.index);
+          List.from((state as ExpenseLoaded).expenses);
+
+      final index =
+          updatedExpenses.indexWhere((expense) => expense.id == event.id);
+
+      updatedExpenses.remove(updatedExpenses[index]);
 
       await _saveExpenses(updatedExpenses);
       emit(ExpenseLoaded(updatedExpenses));
